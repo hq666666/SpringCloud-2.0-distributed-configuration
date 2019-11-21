@@ -1,0 +1,21 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: test-configclient #需要与版本控制上的配置文件的名称一致
+  cloud:
+    config:
+      profile: sit #版本环境
+      discovery:
+        enabled: true #是否开启读取权限
+        service-id: config-server #配置中心服务地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8100/eureka/
+#开启所有端点(配置文件手动刷新，无需重启服务)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

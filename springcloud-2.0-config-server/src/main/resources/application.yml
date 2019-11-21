@@ -1,0 +1,17 @@
+server:
+  port: 8200
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/hqmycode/config-center.git #配置文件中心git
+          search-paths:
+            - gkconfig #文件目录
+          default-label: master #主分支
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8100/eureka/
